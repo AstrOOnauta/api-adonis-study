@@ -26,7 +26,7 @@ Route.group(()=>{
     return { hello: 'world' }
   })
 
-  Route.get("moments", "MomentsController.show")
+  Route.resource("moments", "MomentsController").apiOnly()
 
 }).prefix("/api")
 
