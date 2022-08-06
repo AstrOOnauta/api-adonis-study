@@ -25,5 +25,8 @@ Route.group(()=>{
   Route.get('/', async () => {
     return { hello: 'world' }
   })
+
+  Route.get("moments", "MomentsController.show")
+
 }).prefix("/api")
 
