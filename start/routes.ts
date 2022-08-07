@@ -27,6 +27,7 @@ Route.group(()=>{
   })
 
   Route.resource("moments", "MomentsController").apiOnly()
+  Route.resource("moments/:momentId/comments", "CommentsController").apiOnly()
 
 }).prefix("/api")
 
