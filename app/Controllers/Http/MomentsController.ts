@@ -12,15 +12,17 @@ export default class MomentsController {
   }
 
   public async index(){
-    const moments = await Moment.all()
+    const moments = await Moment.query().preload("comments")
 
-    return {moments}
+    return {data: moments}
   }
 
   public async show(ctx: HttpContextContract){
     const id = ctx.params.id
 
     const moment = await Moment.findOrFail(id)
+
+    await moment.load("comments")
 
     return {data: moment}
   }
